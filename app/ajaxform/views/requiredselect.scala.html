@@ -1,0 +1,15 @@
+@(field2: play.api.data.Field, options2: Seq[(String,String)], label: String, defaultOption: String)
+
+@import helper._
+@import play.i18n._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+
+@select(
+		field2, 
+		options2,
+		'_label -> label
+		,'_default -> defaultOption
+		,'_help -> Messages.get("constraint.idnotnull")
+		
+)

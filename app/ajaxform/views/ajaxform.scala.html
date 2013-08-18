@@ -1,0 +1,14 @@
+@(action: play.api.mvc.Call, formId: String, clazz: String="")(html: Html)(implicit uri: String=request.uri)
+
+@import helper.form
+
+@form(action, 'class -> clazz, 'id -> formId) {
+	@html
+	<input type="hidden" name="ajaxformuri" value="@uri" class="">
+}
+
+<script>
+$(document).ready(function() {
+	$('#@formId').ocform();
+}); 
+</script>
